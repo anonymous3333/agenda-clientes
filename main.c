@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <winbase.h>
 
 typedef struct{
   char nombre[50];
@@ -19,6 +18,8 @@ int main(int argc, char const *argv[]) {
   cliente agenda_leer[Nclientes];
   FILE *agenda;
   char nombre_archivo[255];
+  int tArchivo;
+  int nRegistros;
   //printf("%d",sizeof(cliente));
   printf("Que desear hacer?\n");
   printf("1) Crear una nueva agenda\n");
@@ -60,6 +61,7 @@ system("cls");
   scanf("%d",&opcion2);
 
   switch (opcion2){
+      //RELLENO DE REGISTROS
     case 1:
         printf("Cuantos clientes desea agregar?:");
         scanf("%d",&Nclientes);
@@ -79,10 +81,27 @@ system("cls");
             printf("ESTADO DE DE PAGO>");
             scanf("%f",&agenda_guardar[i].estado_pagos);
             fwrite(&agenda_guardar[i],sizeof(agenda_guardar[i]),1,agenda);
+            fclose(agenda);
         }
       break;
-    //RELLENO DE REGISTROS
+    //VISUALIZACIÓN DE REGISTROS
     case 2:
+        agenda=fopen(nombre_archivo,"r+b");
+        fseek(agenda,0L,SEEK_END);
+        tArchivo=ftell(agenda);
+        nRegistros=tArchivo/sizeof(cliente);    //calcula el numero de registros que contiene el archivo
+        //printf("EL TAMANO DEL ARCHIVO ES: %d",tArchivo);
+        for(int i=0;i<nRegistros;i++){
+            rewind(agenda);
+            fread(&agenda_leer[i],sizeof(agenda_leer[i]),1,agenda);
+            printf("Nombre: %s\n",agenda_leer[i].nombre);
+            printf("Direccion: %s\n",agenda_leer[i].direccion);
+            printf("Telefono: %u\n",agenda_leer[i].telefono);
+            printf("Sexo: %c\n",agenda_leer[i].sexo);
+            printf("Deuda: %2.f\n",agenda_leer[i].estado_pagos);
+            puts("-------------------------------------------");
+        }
+        fclose(agenda);
 
       break;
 
