@@ -91,8 +91,8 @@ system("cls");
         tArchivo=ftell(agenda);
         nRegistros=tArchivo/sizeof(cliente);    //calcula el numero de registros que contiene el archivo
         //printf("EL TAMANO DEL ARCHIVO ES: %d",tArchivo);
+        rewind(agenda); //POSICIONA LA LECTURA AL PRINCIPIO DEL ARCHIVO
         for(int i=0;i<nRegistros;i++){
-            rewind(agenda);
             fread(&agenda_leer[i],sizeof(agenda_leer[i]),1,agenda);
             printf("Nombre: %s\n",agenda_leer[i].nombre);
             printf("Direccion: %s\n",agenda_leer[i].direccion);
