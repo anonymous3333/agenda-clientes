@@ -10,16 +10,24 @@ typedef struct{
   float estado_pagos;
 }cliente;
 
+int cmpNum(unsigned int n1,unsigned int n2){
+    if(n1==n2)
+        return 1;
+    else
+        return 0;
+}
+
 int main(int argc, char const *argv[]) {
+    unsigned int Nbuscar=2293;
   char cont; //BANDERA DE CONTINUACIÓN DEL PROGRAMA
   int opcion1,opcion2;//BANDERA DE OPCIONES
   int Nclientes=0;
   cliente agenda_guardar[Nclientes];
-  cliente agenda_leer[Nclientes];
-  FILE *agenda;
+  int nRegistros=0;
+  cliente agenda_leer[nRegistros];
   char nombre_archivo[255];
-  int tArchivo;
-  int nRegistros;
+  int tArchivo=0;
+  FILE *agenda;
   //printf("%d",sizeof(cliente));
   printf("Que desear hacer?\n");
   printf("1) Crear una nueva agenda\n");
@@ -106,6 +114,21 @@ system("cls");
       break;
 
     case 3:
+        agenda=fopen(nombre_archivo,"r+b");
+        fseek(agenda,0L,SEEK_END);
+        tArchivo=ftell(agenda);
+        nRegistros=tArchivo/sizeof(cliente);
+        rewind(agenda); //POSICIONA LA LECTURA AL PRINCIPIO DEL ARCHIVO
+        for(int i=0;i<nRegistros;i++){
+            fread(&agenda_leer[i],sizeof(agenda_leer[i]),1,agenda);
+            if(cmpNum(Nbuscar,agenda_leer[i].telefono)){
+                printf("Nombre: %s\n",agenda_leer[i].nombre);
+                printf("Direccion: %s\n",agenda_leer[i].direccion);
+                printf("Telefono: %u\n",agenda_leer[i].telefono);
+                printf("Sexo: %c\n",agenda_leer[i].sexo);
+                printf("Deuda: %2.f\n",agenda_leer[i].estado_pagos);
+            }
+        }
       break;
 
     case 4:
@@ -121,7 +144,7 @@ system("cls");
   break;
 
 }
-
-
   return 0;
 }
+
+
