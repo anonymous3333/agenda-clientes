@@ -42,6 +42,11 @@
 *.idb
 *.pdb
 
+# Archivos con registros
+*.bin
+*.txt
+
+
 # Kernel Module Compile Results
 *.mod*
 *.cmd
