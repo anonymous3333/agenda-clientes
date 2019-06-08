@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1559963258 source:c:\users\kevin\github\agenda-clientes\agregar_clientes.c
+	<stdio.h>
+	<stdlib.h>
+	"agendas.h"
+
+1559963554 source:c:\users\kevin\github\agenda-clientes\borra_clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1559963071 source:c:\users\kevin\github\agenda-clientes\busca_cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"agendas.h"
+
+1559963181 source:c:\users\kevin\github\agenda-clientes\lee_archivos.c
+	<stdio.h>
+	<stdlib.h>
+	"agendas.h"
+
+1559963996 source:c:\users\kevin\github\agenda-clientes\main.c
+	<stdio.h>
+	<stdlib.h>
+	"agendas.h"
+
+1559964031 c:\users\kevin\github\agenda-clientes\agendas.h
+
+1559963164 source:c:\users\kevin\github\agenda-clientes\modificar_registros.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"agendas.h"
+
+1559964275 source:c:\users\kevin\github\agenda-clientes\crear_archivo.c
+	<stdio.h>
+	<stdlib.h>
+	"agendas.h"
+
+1559963366 source:c:\users\kevin\github\agenda-clientes\muestra_deudas.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "agendas.h"
 
 typedef struct{
   char nombre[50];
@@ -11,9 +12,7 @@ typedef struct{
   int activo;
 }cliente;
 
-int main(){
-    char nombre_archivo[255];
-    int Nclientes;
+void modificar_registro(char *nombre_archivo){
     int i;
     FILE *agenda;
     int tArchivo,nRegistros;
@@ -94,5 +93,4 @@ int main(){
     }
 
     fclose(agenda);
-    return 0;
 }

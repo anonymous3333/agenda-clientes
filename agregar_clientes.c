@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "agendas.h"
 
 typedef struct{
   char nombre[50];
@@ -10,15 +11,14 @@ typedef struct{
   int activo;
 }cliente;
 
-int main(){
-    char nombre_archivo[255];
+void agregar_clientes(char *nombre_archivo){
     int Nclientes;
     int i;
     FILE *agenda;
 
-    system("ls *.bin");
-    printf("CON QUE ARCHIVO DESEA TRABAJAR?:");
-    scanf("%s",nombre_archivo);
+//    system("ls *.bin");
+//    printf("CON QUE ARCHIVO DESEA TRABAJAR?:");
+//    scanf("%s",nombre_archivo);
 
     printf("Cuantos clientes desea agregar?:");
     scanf("%d",&Nclientes);
@@ -42,6 +42,4 @@ int main(){
         fwrite(&agenda_guardar[i],sizeof(agenda_guardar[i]),1,agenda);
     }
     fclose(agenda);
-
-    return 0;
 }

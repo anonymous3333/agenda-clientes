@@ -11,17 +11,15 @@ typedef struct{
   int activo;
 }cliente;
 
-int main(){
-    char nombre_archivo[255];
-    int Nclientes;
+void borrar_cliente(char *nombre_archivo){
     int i;
     FILE *agenda;
     int tArchivo,nRegistros;
     int regMod;
 
-    system("ls *.bin");
-    printf("INTRODUCE EL NOMBRE DEL ARCHIVO:");
-    scanf("%s",nombre_archivo);
+//    system("ls *.bin");
+//    printf("INTRODUCE EL NOMBRE DEL ARCHIVO:");
+//    scanf("%s",nombre_archivo);
 
     agenda=fopen(nombre_archivo,"rb");
     if(agenda==NULL){
@@ -57,5 +55,4 @@ int main(){
 
         fclose(agenda);
     }
-    return 0;
 }

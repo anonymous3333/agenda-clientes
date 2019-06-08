@@ -1,24 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include "agendas.h"
 
-typedef struct{
-  char nombre[50];
-  char telefono[10];
-  char direccion[100];
-  char sexo;
-  float estado_pagos;
-  int activo;
-}cliente;
+int crear_archivo(char nombre_archivo[255]){
 
-int main(){
-    char nombre_archivo[255];
-
-    printf("INGRESE UN NOMBRE PARA EL ARCHIVO:");
-    scanf("%s",nombre_archivo);
-    strcat(nombre_archivo,".bin");
+//    puts(nombre_archivo);
+//    printf("INGRESE UN NOMBRE PARA EL ARCHIVO:");
+//    scanf("%s",nombre_archivo);
     FILE *agenda;
     agenda=fopen(nombre_archivo,"wb");
     fclose(agenda);
+    printf("ARCHIVO CREADO CON EXITO!!!");
     return 0;
 }

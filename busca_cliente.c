@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "agendas.h"
 
 typedef struct{
   char nombre[50];
@@ -11,9 +12,7 @@ typedef struct{
   int activo;
 }cliente;
 
-int main(){
-    char nombre_archivo[255];
-    int Nclientes;
+void buscar_clientes(char *nombre_archivo){
     int i;
     FILE *agenda;
     int tArchivo,nRegistros;
@@ -21,9 +20,9 @@ int main(){
     int iguales;
     int incidencias=0;
 
-    system("ls *.bin");
-    printf("\nINGRESE EL NOMBRE DEL ARCHIVO>");
-    gets(nombre_archivo);
+//    system("ls *.bin");
+//    printf("\nINGRESE EL NOMBRE DEL ARCHIVO>");
+//    gets(nombre_archivo);
 
     agenda=fopen(nombre_archivo,"rb");
     if(agenda==NULL){
@@ -61,5 +60,4 @@ int main(){
 
         fclose(agenda);
     }
-    return 0;
 }
