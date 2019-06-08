@@ -22,6 +22,10 @@ int main()
         switch(op1){
 
         case 1:
+            printf("INGRESE UN NOMBRE PARA EL ARCHIVO:");
+            scanf("%s",nombre_archivo);
+            strcat(nombre_archivo,".bin");
+            crear_archivo(nombre_archivo);
             fflush(stdin);
             printf("DESEA CONTINUAR? (S/N)>");
             scanf("%c",&cont);
