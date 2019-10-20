@@ -22,6 +22,7 @@ int main()
         switch(op1){
 
         case 1:
+            system("cls");
             printf("INGRESE UN NOMBRE PARA EL ARCHIVO:");
             scanf("%s",nombre_archivo);
             strcat(nombre_archivo,".bin");
